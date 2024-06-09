@@ -4,29 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registration form</title>
-  </head> 
+  </head>
   <body style="margin: 0">
     <form onsubmit="handleFormSubmit(event)">
-      <h3 style="color: darkblue;">Booking Appointment App</h3>
-      <div>
-        <label for="username">Username:</label>
-      </div>
-      <div>
-        <input type="text" name="username" id="username" />
-      </div>
-      <div> 
-        <label for="email">Email:</label>
-      </div>
-      <div>
-        <input type="email" name="email" id="email" />
-      </div>
-      <div>
-        <label for="phone">Phone No:</label>
-      </div>
-      <div>
-        <input type="number" name="phone" id="phone" />
-      </div>
-      <button type="submit" style="background-color:rgb(0, 255, 229);color:darkmagenta">Submit</button>
+      <h3 style="color: darkblue">Booking Appointment App</h3>
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username" /><br />
+
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" /><br />
+
+      <label for="phone">Phone No:</label>
+      <input type="number" name="phone" id="phone" /><br />
+
+      <button
+        type="submit"
+        style="background-color: rgb(0, 255, 229); color: darkmagenta"
+      >
+        Submit
+      </button>
     </form>
     <ul></ul>
   </body>
