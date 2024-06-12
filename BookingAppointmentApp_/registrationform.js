@@ -48,21 +48,29 @@ function handleFormSubmit(event) {
 }
 
 function showUser(user) {
-  if (user.length > 1) {
-    for (i = 0; i <= user.length; i++) {
+  if (user.length === 0) {
+    const body = document.querySelector("body");
+    const para = document.createElement("p");
+    para.innerHTML = `No users available right Now.!!`;
+    body.appendChild(para);
+  } else if (user.length > 0) {
+    // for (i = 0; i <= user.length; i++) {
+    user.forEach(usr=>{
       // console.log("inside for loop",user[i].phonnumber);
       const newLi = document.createElement("li");
       newLi.className = "user";
+      newLi.id=usr.id;
 
-      newLi.innerHTML = `${user[i].name} - ${user[i].email} - ${user[i].phonnumber}`;
+      newLi.innerHTML = `${usr.name} - ${usr.email} - ${usr.phonnumber} - ${usr.id}`;
 
       btn = document.createElement("button");
       const btnText = document.createTextNode("delete");
       btn.appendChild(btnText);
       btn.type = "delete";
       btn.className = "delete-btn";
-      // // btn.addEventListener("click", deleteDetails);
-      // btn.onclick=deleteDetails;
+      btn.addEventListener("click", function () {
+        deleteDetails(usr.id);
+      });
       newLi.appendChild(btn);
 
       editBtn = document.createElement("button");
@@ -75,10 +83,11 @@ function showUser(user) {
       newLi.appendChild(editBtn);
 
       ul.appendChild(newLi);
-    }
+    })
   } else {
     const newLi = document.createElement("li");
     newLi.className = "user";
+    newLi.id = user.id;
 
     newLi.innerHTML = `${user.name} - ${user.email} - ${user.phonnumber}`;
     btn = document.createElement("button");
@@ -86,8 +95,12 @@ function showUser(user) {
     btn.appendChild(btnText);
     btn.type = "delete";
     btn.className = "delete-btn";
-    // // btn.addEventListener("click", deleteDetails);
-    // btn.onclick=deleteDetails;
+    // btn.addEventListener("click", function () {
+    //   deleteDetails(user.id);
+    // });
+    btn.onclick = function () {
+      deleteDetails(user.id);
+    };
     newLi.appendChild(btn);
 
     editBtn = document.createElement("button");
@@ -103,37 +116,25 @@ function showUser(user) {
   }
 }
 
-// function deleteDetails(event) {
-//   if (event.target.classList.contains("delete-btn")) {
-//     const curentUserDetails = event.target.parentElement;
-//     ul.removeChild(curentUserDetails);
+function deleteDetails(userId) {
+  axios
+    .delete(`http://localhost:3000/user/delete-user/${userId}`)
+    .then((res) => {
+      console.log(res);
+      removeFromDisplay(userId);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 
-//     axios
-//       .get(api)
-//       .then((res) => {
-//         console.log(res);
+}
 
-//         for (let i = 0; i < res.data.length; i++) {
-//           if (res.data[i].email === curentUserDetails.children[1].textContent) {
-//             var newApi = api + "/" + res.data[i]._id;
-//             console.log(newApi);
-//             axios
-//               .delete(newApi)
-//               .then((res) => {
-//                 console.log(res);
-//               })
-//               .catch((err) => {
-//                 console.log(err);
-//               });
-//           }
-//         }
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-//     // localStorage.removeItem(curentUserDetails.children[1].textContent);
-//   }
-// }
+function removeFromDisplay(userId) {
+  const childNodeToBeDeleted = document.getElementById(userId);
+  // console.log('parentNode',ul)
+  // console.log('childNodeToBeDeleted',childNodeToBeDeleted);
+  ul.removeChild(childNodeToBeDeleted);
+}
 
 // function editDetails(event) {
 //   if (event.target.classList.contains("edit-btn")) {
