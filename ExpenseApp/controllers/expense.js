@@ -41,7 +41,7 @@ exports.deleteExpenseDetails=async(req,res,next)=>{
         res.sendStatus(200)
     }catch(err){
         console.log("deletion failed",err);
-        res.status()
+        res.status(500).json({error:"user deletion failed"})
     }
 }
 
