@@ -6,6 +6,31 @@
     <title>Expense Checker</title>
 </head>
 <body>
-    
+    <form onsubmit="addExpenses(event)">
+        <h3>Expense App</h3>
+
+        <label for="spentAmount">Enter Spent Amount:</label><br>
+        <input type="number" id="spentAmount" name="spentAmount"><br>
+
+        <label for="desc">Provide Description:</label><br>
+        <input type="text" id="desc" name="desc"><br>
+
+        <label for="category">choose the expense Category:</label><br>
+        <select name="category" id="category">
+            <option value="House Rent">House Rent</option>
+            <option value="food">Food</option>
+            <option value="electricity">Electricity</option>
+            <option value="water">Water bill</option>
+            <option value="shopping">Shopping</option>
+            <option value="other">Others</option>
+        </select><br><br>
+        <button type="submit" style="color: brown; background-color: aqua;">Add</button>
+    </form>
+    <ul></ul>
 </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js"></script>
+
+<script src="expenseCheck.js"></script>
+
 </html>
