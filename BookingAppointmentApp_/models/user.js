@@ -16,13 +16,13 @@ const User=sequelize.define('user',{
     email:{
         type:Sequelize.STRING,
         // allowNull: false,
-        unique:false
+        unique:true
         
     },
     phonnumber:{
         type:Sequelize.DOUBLE,
         // allowNull:false,
-        unique:false
+        unique:true
     }
 })
 

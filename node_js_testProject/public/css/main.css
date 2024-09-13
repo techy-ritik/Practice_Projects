@@ -1,0 +1,71 @@
+/* nav{
+    border: 1cap;
+    border-radius: 2rem;
+} */
+
+.admin-panel {
+  display: flex;
+}
+
+.btn-group-vertical {
+  margin-top: 10px;
+  color: darkgreen;
+  background-color: antiquewhite;
+  width: 16rem;
+  height: 50rem;
+  border-radius: 2rem;
+}
+
+.btn-dark {
+  color: rgb(173, 220, 20);
+  background-color: darkcyan;
+  border-color: #0d0101;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 16px;
+  position: absolute; /* Fix the button position */
+  bottom: 10px; /* Distance from the bottom */
+  left: 25%;
+}
+
+.btn-dark:hover {
+  background-color: #23272b; /* Darker shade on hover */
+}
+
+.table-container {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+table {
+  margin-top: 50px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+}
+
+thead {
+  background-color: #f2f2f2;
+}
+
+#newInput {
+  display: flex;
+}
+
+.new-field {
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+  color: navy;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* .mb-3{
+    position: unset;
+} */

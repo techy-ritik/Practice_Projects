@@ -1,6 +1,4 @@
 const ul = document.querySelector("ul");
-// let btn = document.createElement("button");
-// let editBtn = document.createElement("button");
 
 api = "http://localhost:3000/user/add-user";
 
@@ -90,6 +88,7 @@ function showUser(user) {
     newLi.id = user.id;
 
     newLi.innerHTML = `${user.name} - ${user.email} - ${user.phonnumber}`;
+    
     btn = document.createElement("button");
     const btnText = document.createTextNode("delete");
     btn.appendChild(btnText);
@@ -135,47 +134,3 @@ function removeFromDisplay(userId) {
   // console.log('childNodeToBeDeleted',childNodeToBeDeleted);
   ul.removeChild(childNodeToBeDeleted);
 }
-
-// function editDetails(event) {
-//   if (event.target.classList.contains("edit-btn")) {
-//     const form = document.querySelector("form");
-//     form.reset();
-//     const curentUserDetails = event.target.parentElement;
-//     const userNameInput = document.getElementById("username");
-//     userNameInput.setAttribute(
-//       "value",
-//       curentUserDetails.children[0].textContent
-//     );
-//     const emailInput = document.getElementById("email");
-//     emailInput.setAttribute("value", curentUserDetails.children[1].textContent);
-//     const phoneInput = document.getElementById("phone");
-//     phoneInput.setAttribute("value", curentUserDetails.children[2].textContent);
-//     ul.removeChild(curentUserDetails);
-
-//     axios
-//       .get(api)
-//       .then((res) => {
-//         console.log(res);
-
-//         for (let i = 0; i < res.data.length; i++) {
-//           if (res.data[i].email === curentUserDetails.children[1].textContent) {
-//             var newApi = api + "/" + res.data[i]._id;
-//             console.log(newApi);
-//             axios
-//               .delete(newApi)
-//               .then((res) => {
-//                 console.log(res);
-//               })
-//               .catch((err) => {
-//                 console.log(err);
-//               });
-//           }
-//         }
-//       })
-//       .catch((err) => {
-//         console.log(err);
-//       });
-
-//     // localStorage.removeItem(curentUserDetails.children[1].textContent);
-//   }
-// }

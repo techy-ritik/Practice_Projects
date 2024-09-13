@@ -1,10 +1,10 @@
 const ul = document.querySelector("ul");
 const body = document.querySelector("body");
 
-api = "http://localhost:3000/expense/add-expense";
+// api = "http://localhost:3000/expense/add-expense";
 
 axios
-  .get(api)
+  .get("http://localhost:3000/expense/add-expense")
   .then((res) => {
     showExpenses(res.data.allExpense);
   })
@@ -22,7 +22,7 @@ function addExpenses(event) {
   };
 
   axios
-    .get(api)
+    .get("http://localhost:3000/expense/add-expense")
     .then((res) => {
       // showExpenses(res.data.allExpense);
       isAvailable = false;
@@ -37,10 +37,10 @@ function addExpenses(event) {
       });
       if (isAvailable == false) {
         axios
-        .post(api, newExpense)
-        .then((res) => {
-          showExpenses(res.data.newExpense);
-        });
+          .post("http://localhost:3000/expense/add-expense", newExpense)
+          .then((res) => {
+            showExpenses(res.data.newExpense);
+          });
       } else {
         const para = document.createElement("p");
         para.innerHTML = `Same Expense already entered`;
@@ -165,3 +165,6 @@ function removeDispalyedExpense(removableExpense) {
   const childNodeToDelete = document.getElementById(removableExpense);
   ul.removeChild(childNodeToDelete);
 }
+
+
+
